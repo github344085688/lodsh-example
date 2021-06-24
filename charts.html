@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Charts</title>
+  <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../node_modules/rainbow-code/themes/css/github.css">
+  <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="app.css" rel="stylesheet">
+  <style>
+    .chart-legend {
+      list-style-type: none;
+      margin-top: 5px;
+      text-align: center;
+    /* NOTE: Browsers automatically add 40px of padding-left to all lists, so we should offset that, otherwise the legend is off-center */
+      -webkit-padding-start: 0;
+    /* Webkit */
+      -moz-padding-start: 0;
+    /* Mozilla */
+      padding-left: 0;
+    /* IE (handles all cases, really, but we should also include the vendor-specific properties just to be safe) */
+    }
+    .chart-legend li {
+      display: inline-block;
+      white-space: nowrap;
+      position: relative;
+      margin-bottom: 4px;
+      border-radius: 5px;
+      padding: 2px 8px 2px 28px;
+      font-size: smaller;
+      cursor: default;
+    }
+    .chart-legend li span {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body ng-app="examples" id="top">
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container" ng-controller="MenuCtrl">
+        <ul class="dropdown-menu">
+            <li ng-repeat="chart in charts"><a ng-href="#{{chart | lowercase }}-chart">{{chart}}</a></li>
+        </ul>
+</div>
+
+  <script src="angular.min.js"></script>
+  <script src="Chart.min.js"></script>
+  <script src="angular-chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

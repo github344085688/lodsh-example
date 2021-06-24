@@ -1,0 +1,2447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lodash.js"></script>
+</head>
+<body>
+
+<script>
+
+    /*
+
+     console.log(_.compact([false, false, true]));;
+     a=0;
+
+     console.log(_.isNumber(a));
+
+     */
+
+    var ss = [
+      {
+        "id": "F8",
+        "name": "Sacramento",
+        "accountingCode": "908",
+        "accessUrl": "sacramento",
+        "useLocationSequence": true,
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "enableAutoGroupPickStragety": true,
+        "enableTaskAutoAssign": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "createdBy": "ttsui",
+        "createdWhen": "2021-03-24T15:44:43.119",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "thirdPartySite": "sacramento",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "collectLocationWifiInfo": true,
+        "lpPrefix": "29",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false,
+        "userRoleIdMaxInProgressPickTaskMapping": {}
+      }, {
+        "id": "F7",
+        "name": "Delp-892",
+        "accountingCode": "892",
+        "accessUrl": "delp",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "createdBy": "tharris",
+        "createdWhen": "2020-12-21T11:03:00.862",
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:40:45.452",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "delp",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "lpPrefix": "27",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "F6",
+        "name": "Transcon-838",
+        "accountingCode": "838",
+        "accessUrl": "transcon",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "createdBy": "tyu",
+        "createdWhen": "2020-11-20T18:13:32.559",
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:40:55.232",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "transcon",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["harold.cuarezma@unisco.com"],
+        "lpPrefix": "26",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "F5",
+        "name": "Spring-902",
+        "accountingCode": "902",
+        "accessUrl": "spring",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 1,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 2,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 3,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 4,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 5,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 6,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 7,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 8,
+          "maxInbound": 2,
+          "maxOutbound": 1
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22
+        }, {
+          "hour": 23
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "createdBy": "easonc",
+        "createdWhen": "2020-07-06T23:07:37.292",
+        "updatedBy": "jsponberg",
+        "updatedWhen": "2021-03-25T14:18:23.21",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "spring",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["harold.cuarezma@unisco.com"],
+        "lpPrefix": "25",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "F4",
+        "name": "Morgan Lakes",
+        "accountingCode": "893",
+        "accessUrl": "morganlakes",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 1,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 2,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 3,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 4,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 5,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 6,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 7,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 8,
+          "maxInbound": 2,
+          "maxOutbound": 2
+        }, {
+          "hour": 9,
+          "maxInbound": 4,
+          "maxOutbound": 2
+        }, {
+          "hour": 10,
+          "maxInbound": 4,
+          "maxOutbound": 2
+        }, {
+          "hour": 11,
+          "maxInbound": 4,
+          "maxOutbound": 2
+        }, {
+          "hour": 12,
+          "maxInbound": 2,
+          "maxOutbound": 0
+        }, {
+          "hour": 13,
+          "maxInbound": 4,
+          "maxOutbound": 2
+        }, {
+          "hour": 14,
+          "maxInbound": 4,
+          "maxOutbound": 2
+        }, {
+          "hour": 15,
+          "maxInbound": 4,
+          "maxOutbound": 4
+        }, {
+          "hour": 16,
+          "maxInbound": 2,
+          "maxOutbound": 0
+        }, {
+          "hour": 17,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 18,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 19,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 20,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 21,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 22,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 23,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "createdBy": "easonc",
+        "createdWhen": "2020-04-07T20:43:53.373",
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:41:17.8",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "thirdPartySite": "morganlakes",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "4-6",
+        "exceptionNotificationEmails": ["david.royal@unisco.com"],
+        "collectLocationWifiInfo": true,
+        "lpPrefix": "24",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "F3",
+        "name": "COR-1",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "createdBy": "tharris",
+        "createdWhen": "2019-12-19T10:41:23.279",
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:41:29.438",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "COR1",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "F1",
+        "name": "Valley View",
+        "codes": ["V106", "BUE"],
+        "accountingCode": "889",
+        "accessUrl": "valleyview",
+        "useLocationSequence": true,
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": [{
+            "taskType": "Load",
+            "userRoleIds": [95, 2],
+            "userTagIds": []
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 95, 20],
+            "userTagIds": [20, 8],
+            "customerIds": ["ORG-43317"],
+            "userIds": ["2462"]
+          }, {
+            "taskType": "Pack",
+            "userRoleIds": [2],
+            "userTagIds": []
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-48106"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-43317"],
+            "userIds": ["2462"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-48106"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-35182"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-35182"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-87425"],
+            "userIds": ["2462"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-87425"],
+            "userIds": ["2462"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-40862"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-40862"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-34818"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-34818"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-153859"],
+            "userIds": ["2462"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-153859"],
+            "userIds": ["2462"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-40856"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-40856"],
+            "userIds": ["9139"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-7798"],
+            "userIds": ["2414"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-7798"],
+            "userIds": ["2414"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-7931"],
+            "userIds": ["2414"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-7931"],
+            "userIds": ["2414"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-34557"],
+            "userIds": ["212"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-34557"],
+            "userIds": ["122"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-3"],
+            "userIds": ["3872"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-3"],
+            "userIds": ["1640"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-55783"],
+            "userIds": ["1133"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-55783"],
+            "userIds": ["1133"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-119349"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-119349"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-121178"],
+            "userIds": ["176"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-121178"],
+            "userIds": ["176"]
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-49546"],
+            "userIds": ["8740", "9139"]
+          }, {
+            "taskType": "Load",
+            "userRoleIds": [2, 20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-49546"],
+            "userIds": ["8740", "9139"]
+          }, {
+            "taskType": "Pick",
+            "userRoleIds": [20],
+            "userTagIds": [20],
+            "customerIds": ["ORG-256162"],
+            "userIds": ["8968"]
+          }],
+          "globalDefaultTaskAssigneeUserId": "117"
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "carrierHouseAccounts": [{
+          "carrierId": "ORG-115765",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-263378",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-45324",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-267597",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-34654",
+          "houseAccounts": ["R670W8", "83YA51", "1A5400"]
+        }],
+        "enableAutoGroupPickStragety": true,
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 5,
+        "createdBy": "tharris",
+        "createdWhen": "2019-11-19T09:30:43.334",
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:52:11.896",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "usePickNewUI": true,
+        "submitPICountWithPicture": true,
+        "notBlindPICount": true,
+        "thirdPartySite": "valleyview",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "collectLocationWifiInfo": true,
+        "lpPrefix": "11",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-2",
+        "name": "Walnut",
+        "accountingCode": "818",
+        "accessUrl": "walnut",
+        "useDockCheckingNo": false,
+        "useLocationSequence": true,
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": [],
+          "globalDefaultTaskAssigneeUserId": "117"
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 6,
+          "maxOutbound": 6
+        }, {
+          "hour": 1
+        }, {
+          "hour": 2
+        }, {
+          "hour": 3
+        }, {
+          "hour": 4
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22
+        }, {
+          "hour": 23
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "isReplenishmentForMovement": false,
+        "enableAutoGroupPickStragety": true,
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "pickToOrderWeight": 1000.0,
+        "userInactiveMinutes": 25,
+        "userTaskCapacity": 10,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:41:38.44",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "usePickNewUI": false,
+        "shipmentExpirationDays": 30,
+        "thirdPartySite": "WAL",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["mario.zepeda@unisco.com"],
+        "lpPrefix": "10",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-7455",
+        "name": "Ontario",
+        "accountingCode": "897",
+        "accessUrl": "ontario",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:41:50.626",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "ONTARIO",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-7656",
+        "name": "Via Baron",
+        "accountingCode": "898",
+        "accessUrl": "viabaron",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": [{
+            "taskType": "Pack",
+            "userRoleIds": [2],
+            "userTagIds": []
+          }]
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0
+        }, {
+          "hour": 1
+        }, {
+          "hour": 2
+        }, {
+          "hour": 3
+        }, {
+          "hour": 4
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22
+        }, {
+          "hour": 23
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableAutoGroupPickStragety": true,
+        "enableTaskAutoAssign": true,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 180,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:42:03.314",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "shipmentExpirationDays": 30,
+        "thirdPartySite": "VB",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["vbmanagement@unisco.com"],
+        "lpPrefix": "13",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-7759",
+        "name": "Fontana",
+        "accountingCode": "931",
+        "accessUrl": "fontana",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": [],
+          "globalDefaultTaskAssigneeUserId": "934"
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "carrierHouseAccounts": [{
+          "carrierId": "ORG-34654",
+          "houseAccounts": ["8RV056", "R670W8"]
+        }],
+        "enableAutoGroupPickStragety": true,
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-09T22:44:24.068",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "notAllowPutawayWithMultipleCustomers": true,
+        "thirdPartySite": "FONTANA",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["Dennis.Garcia@unisco.com"],
+        "lpPrefix": "12",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-7941",
+        "name": "Willow",
+        "accountingCode": "920",
+        "accessUrl": "willow",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": [],
+          "globalDefaultTaskAssigneeUserId": "1712"
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:42:22.504",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "usePickNewUI": false,
+        "defaultZPLPrinter": "263",
+        "defaultPDFPrinter": "269",
+        "thirdPartySite": "WILLOW",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "4-6",
+        "exceptionNotificationEmails": ["efrain.islas@unisco.com"],
+        "lpPrefix": "14",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-7954",
+        "name": "Marlay",
+        "accountingCode": "930",
+        "accessUrl": "marlay",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:42:33.22",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "MARLAY",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-7955",
+        "name": "Turnbull",
+        "accountingCode": "828",
+        "accessUrl": "turnbull",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:42:43.34",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "TURNBULL",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-7972",
+        "name": "Hayward",
+        "accountingCode": "906",
+        "accessUrl": "hayward",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:42:54.172",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "HAYWARD",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-7990",
+        "name": "Reyes",
+        "accountingCode": "891",
+        "accessUrl": "reyes",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:43:06.972",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "REYES",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-8125",
+        "name": "Valley",
+        "codes": ["W12", "W17"],
+        "accountingCode": "899",
+        "accessUrl": "valley",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": [{
+            "taskType": "Load",
+            "userRoleIds": [95, 2],
+            "userTagIds": []
+          }, {
+            "taskType": "Receive",
+            "userRoleIds": [2, 95],
+            "userTagIds": []
+          }],
+          "globalDefaultTaskAssigneeUserId": "2726"
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0
+        }, {
+          "hour": 1,
+          "maxInbound": 50,
+          "maxOutbound": 50
+        }, {
+          "hour": 2
+        }, {
+          "hour": 3
+        }, {
+          "hour": 4
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11,
+          "maxOutbound": 50
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13,
+          "maxInbound": 100,
+          "maxOutbound": 100
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22
+        }, {
+          "hour": 23
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableAutoGroupPickStragety": true,
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:40:14.536",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "usePickNewUI": true,
+        "submitPICountWithPicture": true,
+        "notBlindPICount": true,
+        "shipmentExpirationDays": 30,
+        "thirdPartySite": "VAL",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["andersen.chang@unisco.com", "robert.chung@unisco.com"],
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-8126",
+        "name": "Texas",
+        "codes": ["W23", "W26"],
+        "accountingCode": "901",
+        "accessUrl": "texas",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 10,
+          "maxOutbound": 10
+        }, {
+          "hour": 1
+        }, {
+          "hour": 2
+        }, {
+          "hour": 3
+        }, {
+          "hour": 4
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22
+        }, {
+          "hour": 23
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableAutoGroupPickStragety": true,
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:43:18.483",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "usePickNewUI": true,
+        "thirdPartySite": "TEXAS",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["jocelyn.hernandez@unisco.com"],
+        "lpPrefix": "17",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-8127",
+        "name": "Indiana",
+        "codes": ["W21"],
+        "accountingCode": "810",
+        "accessUrl": "indiana",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 999999,
+          "maxOutbound": 999999
+        }, {
+          "hour": 1,
+          "maxInbound": 999999,
+          "maxOutbound": 999999
+        }, {
+          "hour": 2,
+          "maxInbound": 999999,
+          "maxOutbound": 999999
+        }, {
+          "hour": 3,
+          "maxInbound": 999999,
+          "maxOutbound": 999999
+        }, {
+          "hour": 4,
+          "maxInbound": 999999,
+          "maxOutbound": 999999
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22
+        }, {
+          "hour": 23,
+          "maxInbound": 999999,
+          "maxOutbound": 999999
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableAutoGroupPickStragety": false,
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:43:29.304",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "usePickNewUI": false,
+        "thirdPartySite": "INDIANA",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "lpPrefix": "21",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-34646",
+        "name": "New Jersey",
+        "accountingCode": "909",
+        "accessUrl": "newjersey",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 6,
+          "maxOutbound": 6
+        }, {
+          "hour": 1,
+          "maxInbound": 6,
+          "maxOutbound": 6
+        }, {
+          "hour": 2,
+          "maxInbound": 6,
+          "maxOutbound": 6
+        }, {
+          "hour": 3,
+          "maxInbound": 6,
+          "maxOutbound": 6
+        }, {
+          "hour": 4,
+          "maxInbound": 6,
+          "maxOutbound": 6
+        }, {
+          "hour": 5,
+          "maxInbound": 6,
+          "maxOutbound": 6
+        }, {
+          "hour": 6,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 7,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 8,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 9,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 10,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 11,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 12,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 13,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 14,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 15,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 16,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 17,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 18,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 19,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 20,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 21,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 22,
+          "maxInbound": 60,
+          "maxOutbound": 60
+        }, {
+          "hour": 23,
+          "maxInbound": 6,
+          "maxOutbound": 6
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "carrierHouseAccounts": [{
+          "carrierId": "ORG-115765",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-263378",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-45324",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-267597",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-34654",
+          "houseAccounts": ["R670W8", "83YA51", "1A5400"]
+        }],
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 50,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:52:52.555",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "usePickNewUI": false,
+        "thirdPartySite": "NJS",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "lpPrefix": "15",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-34647",
+        "name": "Houston",
+        "codes": ["HOU"],
+        "accountingCode": "895",
+        "accessUrl": "houston",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": [],
+          "globalDefaultTaskAssigneeUserId": "7326"
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "carrierHouseAccounts": [{
+          "carrierId": "ORG-115765",
+          "houseAccounts": ["UNISEDLO"]
+        }],
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T23:00:06.304",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "thirdPartySite": "HOUSTON",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["paul.graber@unisco.com"],
+        "lpPrefix": "18",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-35184",
+        "name": "Savannah",
+        "accountingCode": "894",
+        "accessUrl": "savannah",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "locationSuggestionOverrides": [{
+          "customerId": "ORG-227391",
+          "customerIds": [],
+          "supervisorId": "86",
+          "overridePassword": "8941001"
+        }, {
+          "customerId": "ORG-227391",
+          "customerIds": [],
+          "supervisorId": "11361",
+          "overridePassword": "8941002"
+        }, {
+          "customerId": "ORG-227391",
+          "customerIds": [],
+          "supervisorId": "1580",
+          "overridePassword": "8941003"
+        }, {
+          "customerId": "ORG-89149",
+          "customerIds": [],
+          "supervisorId": "86",
+          "overridePassword": "8941001"
+        }, {
+          "customerId": "ORG-89149",
+          "customerIds": [],
+          "supervisorId": "11361",
+          "overridePassword": "8941002"
+        }, {
+          "customerId": "ORG-227391",
+          "customerIds": [],
+          "supervisorId": "5330",
+          "overridePassword": "8941004"
+        }, {
+          "customerId": "ORG-89149",
+          "customerIds": [],
+          "supervisorId": "7746",
+          "overridePassword": "8941005"
+        }, {
+          "customerId": "ORG-227391",
+          "customerIds": [],
+          "supervisorId": "11292",
+          "overridePassword": "8941006"
+        }, {
+          "customerId": "ORG-89149",
+          "customerIds": [],
+          "supervisorId": "11292",
+          "overridePassword": "8941006"
+        }, {
+          "customerId": "ORG-185514",
+          "customerIds": [],
+          "supervisorId": "14893",
+          "overridePassword": "8941007"
+        }, {
+          "customerId": "ORG-89149",
+          "customerIds": [],
+          "supervisorId": "14893",
+          "overridePassword": "8941007"
+        }, {
+          "customerId": "ORG-227391",
+          "customerIds": [],
+          "supervisorId": "14893",
+          "overridePassword": "8941007"
+        }, {
+          "customerId": "ORG-185514",
+          "customerIds": [],
+          "supervisorId": "15106",
+          "overridePassword": "8941008"
+        }, {
+          "customerId": "ORG-89149",
+          "customerIds": [],
+          "supervisorId": "15106",
+          "overridePassword": "8941008"
+        }, {
+          "customerId": "ORG-227391",
+          "customerIds": [],
+          "supervisorId": "15106",
+          "overridePassword": "8941008"
+        }],
+        "defaultHouseAccount": "UNISCO2",
+        "carrierHouseAccounts": [{
+          "carrierId": "ORG-115765",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-263378",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-45324",
+          "houseAccounts": ["UNISCastlery"]
+        }, {
+          "carrierId": "ORG-267597",
+          "houseAccounts": ["UNISCastlery"]
+        }],
+        "enableAutoGroupPickStragety": false,
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "dgreenwood",
+        "updatedWhen": "2021-04-02T09:54:01.311",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "savannah",
+        "notAllowOverridePutAwaySuggestLocation": true,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": ["ORG-227391", "ORG-89149"],
+        "lpLabelSize": "2-1",
+        "enablePasswordApprovalAfterNumberOfAttempts": 1,
+        "forbidMovementViaPutAway": false,
+        "collectLocationWifiInfo": true,
+        "lpPrefix": "20",
+        "requireCheckInMobileDeviceOnLogout": true,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false,
+        "userRoleIdMaxInProgressPickTaskMapping": {}
+      }, {
+        "id": "ORG-45230",
+        "name": "Red Bluff",
+        "accountingCode": "868",
+        "accessUrl": "redbluff",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": [],
+          "globalDefaultTaskAssigneeUserId": "7326"
+        },
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:44:10.585",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "thirdPartySite": "redbluff",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["paul.graber@unisco.com"],
+        "lpPrefix": "19",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-50100",
+        "name": "Murphy",
+        "codes": ["MUR"],
+        "accountingCode": "848",
+        "accessUrl": "murphy",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 1,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 2,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 3,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 4,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 23,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:44:17.989",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "murphy",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["jimmy.esparza@unisco.com"],
+        "lpPrefix": "23",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-61213",
+        "name": "Joliet",
+        "codes": ["JOL"],
+        "accountingCode": "890",
+        "accessUrl": "joliet",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 1,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 2,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 3,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 4,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 23,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }],
+        "locationSuggestionOverrides": [{
+          "customerId": "ORG-310205",
+          "supervisorId": "6543",
+          "overridePassword": "31159"
+        }, {
+          "customerId": "ORG-185514",
+          "supervisorId": "6543",
+          "overridePassword": "31159"
+        }, {
+          "customerId": "ORG-332835",
+          "supervisorId": "6543",
+          "overridePassword": "31159"
+        }, {
+          "customerId": "ORG-119993",
+          "supervisorId": "6543",
+          "overridePassword": "31159"
+        }, {
+          "customerId": "ORG-141675",
+          "supervisorId": "6543",
+          "overridePassword": "31159"
+        }, {
+          "customerId": "ORG-348957",
+          "supervisorId": "6543",
+          "overridePassword": "31159"
+        }, {
+          "customerId": "ORG-301889",
+          "supervisorId": "6543",
+          "overridePassword": "31159"
+        }],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "ttsui",
+        "updatedWhen": "2021-03-12T13:35:48.434",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "joliet",
+        "notAllowOverridePutAwaySuggestLocation": true,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": ["ORG-310205", "ORG-185514", "ORG-332835", "ORG-119993", "ORG-141675", "ORG-348957", "ORG-301889"],
+        "lpLabelSize": "2-1",
+        "enablePasswordApprovalAfterNumberOfAttempts": 1,
+        "exceptionNotificationEmails": ["jimmy.esparza@unisco.com"],
+        "collectLocationWifiInfo": true,
+        "lpPrefix": "16",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-67669",
+        "name": "Innovation",
+        "accountingCode": "109",
+        "accessUrl": "innovation",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 1,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 2,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 3,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 4,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 23,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "kewang",
+        "updatedWhen": "2021-03-07T22:44:35.884",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": true,
+        "thirdPartySite": "innovation",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "exceptionNotificationEmails": ["megan.vargas@unisco.com"],
+        "lpPrefix": "22",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false
+      }, {
+        "id": "ORG-77709",
+        "name": "Quality_4400",
+        "accountingCode": "812",
+        "accessUrl": "jetcove",
+        "taskAutoAssignment": {
+          "defaultTaskAssignments": []
+        },
+        "hourlyAppointmentCapacities": [{
+          "hour": 0,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 1,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 2,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 3,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 4,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 5
+        }, {
+          "hour": 6
+        }, {
+          "hour": 7
+        }, {
+          "hour": 8
+        }, {
+          "hour": 9
+        }, {
+          "hour": 10
+        }, {
+          "hour": 11
+        }, {
+          "hour": 12
+        }, {
+          "hour": 13
+        }, {
+          "hour": 14
+        }, {
+          "hour": 15
+        }, {
+          "hour": 16
+        }, {
+          "hour": 17
+        }, {
+          "hour": 18
+        }, {
+          "hour": 19
+        }, {
+          "hour": 20
+        }, {
+          "hour": 21
+        }, {
+          "hour": 22,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }, {
+          "hour": 23,
+          "maxInbound": 0,
+          "maxOutbound": 0
+        }],
+        "locationSuggestionOverrides": [],
+        "defaultHouseAccount": "UNISCO2",
+        "enableTaskAutoAssign": false,
+        "enableConveyorLine": false,
+        "userInactiveMinutes": 60,
+        "userTaskCapacity": 3,
+        "updatedBy": "dgreenwood",
+        "updatedWhen": "2021-03-29T14:28:36.309",
+        "minTotalCaseByDn": 0.0,
+        "requireScanCheckDigitForPickLocation": false,
+        "allowMultipleCustomersInOneLocation": false,
+        "thirdPartySite": "quality_4400",
+        "notAllowOverridePutAwaySuggestLocation": false,
+        "notAllowOverridePutAwaySuggestLocationCustomerIds": [],
+        "lpLabelSize": "2-1",
+        "lpPrefix": "28",
+        "requireCheckInMobileDeviceOnLogout": false,
+        "needRemindCarrierToPickupContainer": false,
+        "inprogressPickTaskLocationSuggestionByCurrentLocation": false,
+        "skipDockCheckIn": false,
+        "notAllowOverridePickingSuggestedLocation": false,
+        "userRoleIdMaxInProgressPickTaskMapping": {}
+      }]
+    /*  _.forEach(ss,function (io,index) {
+     console.log(io);
+     console.log(index);
+
+     })*/
+    /*
+     var  setmarkers = [
+     { lat: 34.05555, lng:  -118.8035 , state: 'finish'},
+     { lat: 34.0659195, lng:  -118.7988186 , state: 'finish'},
+     { lat: 34.1002149, lng:  -118.7695277 , state: 'finish'},
+     { lat: 34.123736, lng: -118.8001857 , state: 'continuous'},
+     ];
+     var ssdd=_.map( setmarkers, _.partialRight(_.pick, ['lat','lng']))//_.map( Array ,function (item) {  return _.pick(item,keys) })
+     console.log(ssdd);*/
+    /*var array = [5, 10, 15, 20];
+     var evens = _.pullAt(array, 1, 3);
+
+     console.log(array);
+     // => [5, 15]
+
+     console.log(evens);
+     // => [10, 20]*/
+    var objects = [{'x': 4}, {'x': 5}];
+
+    _.sortedIndexBy(objects, {'x': 4}, function (o) {
+      return o.x;
+    });
+    // => 0
+
+    // The `_.property` iteratee shorthand.
+    //console.log(_.sortedIndexBy(objects, {'x': 6}, 'x'));;
+    //console.log(objects);
+    // => 0
+    var users = [
+      {'user': 'aaa', 'active': false},
+      {'user': 'fred', 'active': false},
+    ];
+    var userss =  [
+      {
+        "order_id": 3678,
+        "pro": 2294429,
+        "contact_email": "cs@unisco.com",
+        "status": 4,
+        "stage": 5,
+        "c_date": "2014-05-21 08:30:52",
+        "p_date": null,
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "ADVANCED H20",
+        "pickup_street": "811 ZEPHYR ST.",
+        "pickup_city": "STOCKTON",
+        "pickup_state": "CA",
+        "pickup_zip": "95206",
+        "delivery_name": "COSTCO DEPOT #960",
+        "delivery_street": "11600 RIVERSIDE",
+        "delivery_city": "MIRA LOMA",
+        "delivery_state": "CA",
+        "delivery_zip": "91752",
+        "delivery_lat": "34.017300",
+        "delivery_lng": "-117.534187",
+        "weight": "27127.00",
+        "total_pallets": "26",
+        "consignee_city": "MIRA LOMA",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 8519,
+        "pro": null,
+        "contact_email": "cs@unisco.com",
+        "status": 4,
+        "stage": 5,
+        "c_date": "2014-06-13 16:59:42",
+        "p_date": null,
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "MAXZONE VEHICLE LIGHTING",
+        "pickup_street": "15889 SLOVER AVE. #A",
+        "pickup_city": "FONTANA",
+        "pickup_state": "CA",
+        "pickup_zip": "92337",
+        "delivery_name": "STOCKTON CA",
+        "delivery_street": "",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206 ",
+        "delivery_lat": "0.000000",
+        "delivery_lng": "0.000000",
+        "weight": "700.00",
+        "total_pallets": "2",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 30780,
+        "pro": 2426280,
+        "contact_email": "cs@unisco.com",
+        "status": 4,
+        "stage": 5,
+        "c_date": "2014-06-18 14:20:37",
+        "p_date": null,
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "MAXZONE VEHICLE LIGHTING",
+        "pickup_street": "15889 SLOVER AVE. #A",
+        "pickup_city": "FONTANA",
+        "pickup_state": "CA",
+        "pickup_zip": "92337",
+        "delivery_name": "STOCKTON CA",
+        "delivery_street": "",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206 ",
+        "delivery_lat": "0.000000",
+        "delivery_lng": "0.000000",
+        "weight": "0.00",
+        "total_pallets": "7",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 33504,
+        "pro": 2375756,
+        "contact_email": "cs@unisco.com",
+        "status": 4,
+        "stage": 5,
+        "c_date": "2014-07-01 10:11:00",
+        "p_date": "Tue Jul 1 2014",
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "XML-EXPLORER MOTOR LINES                 ",
+        "pickup_street": "13007 CROSSROADS PARKWAY                 ",
+        "pickup_city": "CITY OF INDUSTRY     ",
+        "pickup_state": "CA",
+        "pickup_zip": "91746",
+        "delivery_name": "MCA LOGISTICS",
+        "delivery_street": "2121 BOEING WAY",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206",
+        "delivery_lat": "37.910751",
+        "delivery_lng": "-121.243889",
+        "weight": "4179.00",
+        "total_pallets": "3",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 33620,
+        "pro": null,
+        "contact_email": "cs@unisco.com",
+        "status": -2,
+        "stage": 0,
+        "c_date": "2014-07-01 14:30:30",
+        "p_date": null,
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "MAXZONE VEHICLE LIGHTING",
+        "pickup_street": "15889 SLOVER AVE. #A",
+        "pickup_city": "FONTANA",
+        "pickup_state": "CA",
+        "pickup_zip": "92337",
+        "delivery_name": "KEYSTONE #6",
+        "delivery_street": "1627 ARMY CT.",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206",
+        "delivery_lat": "37.933048",
+        "delivery_lng": "-121.324219",
+        "weight": "2000.00",
+        "total_pallets": "5",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 33753,
+        "pro": null,
+        "contact_email": "cs@unisco.com",
+        "status": -2,
+        "stage": 0,
+        "c_date": "2014-07-01 22:24:50",
+        "p_date": null,
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "MAXZONE VEHICLE LIGHTING",
+        "pickup_street": "15889 SLOVER AVE. #A",
+        "pickup_city": "FONTANA",
+        "pickup_state": "CA",
+        "pickup_zip": "92337",
+        "delivery_name": "KEYSTONE #6",
+        "delivery_street": "1627 ARMY CT.",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206",
+        "delivery_lat": "37.933048",
+        "delivery_lng": "-121.324219",
+        "weight": "2000.00",
+        "total_pallets": "5",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 34795,
+        "pro": 2362881,
+        "contact_email": "cs@unisco.com",
+        "status": 4,
+        "stage": 5,
+        "c_date": "2014-07-03 20:10:42",
+        "p_date": "Thu Jul 3 2014",
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "DZ COOK FOR ARLINGTON INDUSTRIES         ",
+        "pickup_street": "23284 EICHLER ST., UNIT F                ",
+        "pickup_city": "HAYWARD              ",
+        "pickup_state": "CA",
+        "pickup_zip": "94545",
+        "delivery_name": "GRANITE EL- STOCKTON",
+        "delivery_street": "2452 BOEING WAY",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206",
+        "delivery_lat": "37.909752",
+        "delivery_lng": "-121.237434",
+        "weight": "937.00",
+        "total_pallets": "1",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 35039,
+        "pro": 2399082,
+        "contact_email": "cs@unisco.com",
+        "status": 4,
+        "stage": 5,
+        "c_date": "2014-07-07 16:00:33",
+        "p_date": null,
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "MAXZONE VEHICLE LIGHTING",
+        "pickup_street": "15889 SLOVER AVE. #A",
+        "pickup_city": "FONTANA",
+        "pickup_state": "CA",
+        "pickup_zip": "92337",
+        "delivery_name": "KEYSTONE #6",
+        "delivery_street": "1627 ARMY CT.",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206",
+        "delivery_lat": "37.933048",
+        "delivery_lng": "-121.324219",
+        "weight": "4000.00",
+        "total_pallets": "10",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 35159,
+        "pro": 50141379,
+        "contact_email": "cs@unisco.com",
+        "status": 4,
+        "stage": 5,
+        "c_date": "2014-07-07 23:38:31",
+        "p_date": "Mon Jul 7 2014",
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "PENTAIR POOL PRODUCTS                    ",
+        "pickup_street": "10951 W LOS ANGELES AVE                  ",
+        "pickup_city": "MOORPARK             ",
+        "pickup_state": "CA",
+        "pickup_zip": "93021",
+        "delivery_name": "SUPERIOR STOCKTON",
+        "delivery_street": "2414 BOEING WAY",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206",
+        "delivery_lat": "37.909668",
+        "delivery_lng": "-121.238449",
+        "weight": "200.00",
+        "total_pallets": "1",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      },
+      {
+        "order_id": 36237,
+        "pro": 2363745,
+        "contact_email": "cs@unisco.com",
+        "status": 4,
+        "stage": 5,
+        "c_date": "2014-07-10 19:01:44",
+        "p_date": "Thu Jul 10 2014",
+        "d_date": "",
+        "d_date2": "",
+        "d_time_from": "0",
+        "d_time_to": "0",
+        "pickup_name": "DZ COOK C/O KRALOY                       ",
+        "pickup_street": "23284 EICHLER ST                         ",
+        "pickup_city": "HAYWARD              ",
+        "pickup_state": "CA",
+        "pickup_zip": "94545   ",
+        "delivery_name": "GRANITE EL- STOCKTON",
+        "delivery_street": "2452 BOEING WAY",
+        "delivery_city": "STOCKTON",
+        "delivery_state": "CA",
+        "delivery_zip": "95206",
+        "delivery_lat": "37.909752",
+        "delivery_lng": "-121.237434",
+        "weight": "1327.00",
+        "total_pallets": "3",
+        "consignee_city": "STOCKTON",
+        "consignee_state": "CA",
+        "search_type": "",
+        "search_text": ""
+      }
+    ];
+  /*  console.log(_.map(users, function (item) {
+      return _.values(_.pick(item, ['user', 'active']))
+    }));*/
+    function difference(object, base) {
+      function changes(object, base) {
+        return _.transform(object, function (result, value, key) {
+          if (!_.isEqual(value, base[key])) {
+            result[key] = (_.isObject(value) && _.isObject(base[key])) ? changes(value, base[key]) : value;
+          }
+        });
+      }
+
+      return changes(object, base);
+    }
+  /*  console.log(difference(users, userss));
+    console.log(_.mapValues(_.keyBy([{name: 'foo', input: 'bar',ki:'d'},{name: 'fsoo', input: 'bsar'}], 'name'), 'input'));*/
+/*
+     console.log(
+     _.intersectionBy(
+     userss, _.map(
+     [3678,34795], function (item) {
+     return {order_id: item}
+     }), 'order_id'));
+
+
+     console.log(_.map(
+     [3678, 34795], function (item) {
+     return {order_id: item}
+     }));*/
+
+/*
+
+    var users = [
+      { 'user': 'barney', 'age': 36, 'active': true },
+      { 'user': 'barnsey', 'age': 56, 'active': true },
+      { 'user': 'fred',   'age': 40, 'active': false }
+    ];
+
+    console.log(_.filter(users, function (o) {
+      return !o.active;
+    }));;
+    // => objects for ['fred']
+
+    // The `_.matches` iteratee shorthand.
+    console.log(_.filter(users, {'age': 36, 'active': true}));;
+    // => objects for ['barney']
+
+    // The `_.matchesProperty` iteratee shorthand.
+    console.log(_.filter(users, ['active', false]));;
+    // => objects for ['fred']
+
+    // The `_.property` iteratee shorthand.
+    console.log(_.filter(users, 'active'));;
+    // => objects for ['barney']
+*/
+   /* var users = [
+      { 'user': 'afred',   'age': 48 },
+      { 'user': 'garney', 'age': 34 },
+      { 'user': 'dfred',   'age': 40 },
+      { 'user': 'cbarney', 'age': 36 }
+    ];
+
+    // 以 `user` 升序排序 再  `age` 以降序排序。
+    console.log(_.orderBy(users, ['user']));;
+    // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+*/
+    var other = _.create({ 'a': _.create({ 'b': 2 }) });;
+    console.log(other);
+</script>
+</body>
+</html>

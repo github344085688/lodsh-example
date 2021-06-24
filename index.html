@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lodash.js"></script>
+    <link href="./layout.css" rel="stylesheet">
+    <link href="./unis.css" rel="stylesheet">
+</head>
+<body>
+<div class=" shadows   d-flex align-items-center" style="position: fixed; top: 0;left: 0; right: 0; width: 100%">
+    <div class="col-2 p-0 ml-4">
+        <a class="unis-btn unis-btn-tabs tabs-active" href="#array">数组</a>
+    </div>
+    <div class="col-2 p-0">
+        <a class="unis-btn unis-btn-tabs " href="#collection">集合</a>
+    </div>
+    <div class="col-2 p-0">
+        <a class="unis-btn unis-btn-tabs " href="#object">对象</a>
+    </div>
+    <div class="col-2 p-0">
+        <a class="unis-btn unis-btn-tabs " href="#language">语言</a>
+    </div>
+    <div class="col-2 p-0">
+        <div class="unis-btn unis-btn-tabs ">Item one</div>
+    </div>
+    <div class="col-2 p-0">
+        <div class="unis-btn unis-btn-tabs ">Item one</div>
+    </div>
+</div>
+<div style="height: 60px"></div>
+<div class="d-flex">
+    <ul id="array">
+        <li> Array pick from values ---------> _.intersectionBy(
+            Array, _.map(
+            [order_id,order_id], function (item) {
+            return {order_id: item}
+            }), 'order_id'));/=>(2) [{…}, {…}]
+        </li>
+        <li> 比较两个集合差异 ---------> var users = [
+            {'user': 'aaa', 'active': false},
+            {'user': 'fred', 'active': false},
+            ];
+            var userss = [
+            {'active': false,'user': 'barneyss'},
+            {'user': 'fredsss', 'active': false},
+            ]; function difference(object, base) {
+            function changes(object, base) {
+            return _.transform(object, function (result, value, key) {
+            if (!_.isEqual(value, base[key])) {
+            result[key] = (_.isObject(value) && _.isObject(base[key])) ? changes(value, base[key]) : value;
+            }
+            });
+            }
+
+            return changes(object, base);
+            }
+            console.log(difference(users, userss));
+        </li>
+        <li>_.mapValues(_.keyBy([{ name: 'foo', input: 'bar' }], 'name'), 'input'); --------->{foo: "zle"}</li>
+        <li>_.reduce([{ name: 'foo', input: 'bar' }], function (obj, param) {
+            obj[param.name] = param.input
+            return obj;
+            }, {}); --------->{foo: "zle"}
+        </li>
+        <li> Array pick from Array By Kes ---------> _.map( Array, _.partialRight(_.pick, keys))</li>
+        <li> Array pick from Array By Kes ---------> _.map( Array ,function (item) { return _.pick(item,keys) })</li>
+        <li> Array pick from Array By values ---------> 从数组中(提取相关可以的值)_.map( Array ,function (item) { return
+            _.values(_.pick(item,[key,key]))})=>[["barney", false]]
+        </li>
+
+        <li> _.chunk ---------> 将数组（array）拆分成多个 size 长度的区块，并将这些区块组成一个新数组。</li>
+
+        <li> _.compact
+            ---------> _.compact([0, 1, false, 2, '', 3])=> [1, 2, 3]
+        </li>
+        <li> _.concat
+            --------->将array与任何数组 或 值连接在一起。
+        </li>
+        <li> _.difference
+            --------->_.difference([3, 2, 1], [4, 2]);// => [3, 1]创建一个具有唯一array值的数组，每个值不包含在其他给定的数组中(比较器新数组)。
+        </li>
+        <li> _.differenceBy
+            ---------> _.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x'); // => [{ 'x': 2 }]
+        </li>
+        <li> _.differenceWith
+            --------->_.differenceWith[{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }][{ 'x': 1, 'y': 2 }], _.isEqual);
+            //=> [{ 'x': 2, 'y': 1 }]比较器），它调用比较array，values中的元素。 结果值是从第一数组中选择.(比较器新数组)。
+        </li>
+        <li> _.drop
+            --------->_.drop(array, [n=1])创建一个切片数组，去除array前面的n个元素。（n默认值为1。）_.drop([1, 2, 3], 2);
+            // => [3]返回array剩余切片。
+        </li>
+        <li> _.dropRight
+            ---------> 创建一个切片数组，去除array尾部的n个元素。（n默认值为1。）
+        </li>
+        <li> _.dropRightWhile
+            --------->创建一个切片数组，去除array中尾部的部分。
+        </li>
+        <li> _.dropWhile
+            --------->创建一个切片数组，去除array中从起点
+        </li>
+        <li> _.fill
+            --------->使用 value 值来填充（替换） array_.fill([4, 6, 8, 10], '*', 1, 3); // => [4, '*', '*', 10]
+        </li>
+        <li> _.findIndex
+            --------->该方法类似_.find
+        </li>
+        <li> _.findLastIndex
+            --------->该方法类似_.find
+        </li>
+        <li> _.first - > head
+            --------->获取数组 array 的第一个元素。
+        </li>
+        <li> _.flatten
+            --------->减少一级array嵌套深度。
+        </li>
+        <li> _.flattenDeep
+            --------->将array递归为一维数组。
+        </li>
+        <li> _.flattenDepth
+            --------->根据 depth 递归减少 array 的嵌套层级 _.flattenDepth(array, 2);
+            // => [1, 2, 3, [4], 5]
+        </li>
+        <li> _.fromPairs
+            --------->返回一个新对象。这个方法返回一个由键值对pairs构成的对象。_.fromPairs([['fred', 30], ['barney', 40]]);
+            // => { 'fred': 30, 'barney': 40 }
+        </li>
+        <li> _.initial
+            --------->获取数组array中除了最后一个元素之外的所有元素（注：去除数组array中的最后一个元素）。_.initial([1, 2, 3]);
+            // => [1, 2]
+        </li>
+        <li> _.intersection
+            --------->数组的交集 _.intersection([2, 1], [4, 2], [1, 2]);
+            // => [2]
+        </li>
+        <li> _.intersectionBy
+            --------->数组交集元素的新数组 _.intersectionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+            // => [{ 'x': 1 }]
+        </li>
+        <li> _.intersectionWith
+            --------->数组交集元素的新数组。 var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+            var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+
+            _.intersectionWith(objects, others, _.isEqual);
+        </li>
+        <li> _.join
+            --------->接字符串 _.join(['a', 'b', 'c'], '~');
+            // => 'a~b~c'
+        </li>
+        <li> _.last
+            --------->获取array中的最后一个元素。
+        </li>
+        <li> _.indexOf
+            --------->区别是它是从左到右遍历array的元素。
+        </li>
+        <li> _.lastIndexOf
+            --------->区别是它是从右到左遍历array的元素。
+        </li>
+        <li> _.nth
+            --------->获取array数组的第n个元素。如果n为负数，则返回从数组结尾开始的第n个元素。
+        </li>
+        <li> _.pull
+            --------->数组移除值的值。var array = ; _.pull([1, 2, 3, 1, 2, 3], 2, 3); // => [1, 1]
+        </li>
+        <li> _.pullAll
+            --------->数组移除值的数组。 _.pullAll([1, 2, 3, 1, 2, 3], [2, 3]);// => [1, 1]
+        </li>
+        <li> _.pullAllBy
+            --------->数组移除值的数组。var array = [{ 'x': 1 }, { 'x': 2 }, { 'x': 3 }, { 'x': 1 }];_.pullAllBy(array, [{ 'x': 1
+            },
+            { 'x': 3 }], 'x');// => [{ 'x': 2 }]
+        </li>
+        <li> _.pullAllWith
+            --------->数组移除值的数组。 var array = [{ 'x': 1, 'y': 2 }, { 'x': 3, 'y': 4 }, { 'x': 5, 'y': 6
+            }];_.pullAllWith(array, [{ 'x': 3, 'y': 4 }], _.isEqual);// => [{ 'x': 1, 'y': 2 }, { 'x': 5, 'y': 6 }]
+        </li>
+        <li> _.pullAt
+            --------->根据索引 indexes，移除array中对应的元素，并返回被移除元素的数组。var array = [5, 10, 15, 20];
+            var evens = _.pullAt(array, 1, 3);console.log(array);
+            // => [5, 15]
+            console.log(evens);
+            // => [10, 20]
+        </li>
+        <li> _.remove
+            --------->var array = [1, 2, 3, 4];
+            var evens = _.remove(array, function(n) {
+            return n % 2 == 0; });
+            console.log(array); // => [1, 3]
+            console.log(evens);
+            // => [2, 4]
+        </li>
+        <li> _.reverse
+            --------->反转array var array = [1, 2, 3];
+            _.reverse(array);
+            // => [3, 2, 1]
+        </li>
+        <li> _.slice
+            --------->裁剪数组array，从 start 位置开始到end结束，但不包括 end 本身的位置。
+        </li>
+        <li> _.tail
+            --------->获取除了array数组第一个元素以外的全部元素。_.tail([1, 2, 3]);
+            // => [2, 3]
+        </li>
+        <li> _.take
+            --------->创建一个数组切片，从array数组的起始元素开始提取n个元素。_.take([1, 2, 3], 2);
+            // => [1, 2]
+        </li>
+        <li> _.takeRight
+            --------->提取n个元素 _.takeRight([1, 2, 3], 2);
+            // => [2, 3]
+        </li>
+        <li> _.takeRightWhile
+            ---------> 提取元素 var users = [
+            { 'user': 'barney', 'active': true },
+            { 'user': 'fred', 'active': false },
+            { 'user': 'pebbles', 'active': false }
+            ];
+            _.takeRightWhile(users, ['active', false]);
+            // => objects for ['fred', 'pebbles']
+        </li>
+        <li> _.takeWhile
+            --------->提取元素 var users = [
+            { 'user': 'barney', 'active': true },
+            { 'user': 'fred', 'active': false },
+            { 'user': 'pebbles', 'active': false }
+            ];
+            _.takeWhile(users, ['active', false]);
+            // => objects for ['barney', 'fred']
+        </li>
+        <li> _.union
+            --------->数组并集_.union([2], [1, 2]);
+            // => [2, 1]
+        </li>
+        <li> _.unionBy
+            --------->数组并集_ _.unionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+            // => [{ 'x': 1 }, { 'x': 2 }]
+        </li>
+        <li> _.unionWith
+            ---------> 联合数组 var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+            var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+
+            _.unionWith(objects, others, _.isEqual);
+            // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 1 }]
+        </li>
+        <li> _.uniq
+            --------->去重_.uniq([2, 1, 2]);
+            // => [2, 1]
+        </li>
+        <li> _.uniqBy
+            --------->_.uniqBy([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
+            // => [{ 'x': 1 }, { 'x': 2 }]
+        </li>
+        <li> _.uniqWith
+            --------->var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
+            _.uniqWith(objects, _.isEqual);
+            // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
+        </li>
+        <li> _.unzip
+            --------->var zipped = _.zip(['fred', 'barney'], [30, 40], [true, false]);
+            // => [['fred', 30, true], ['barney', 40, false]]
+            _.unzip(zipped);
+            // => [['fred', 'barney'], [30, 40], [true, false]]
+        </li>
+        <li> _.unzipWith
+            --------->var zipped = _.zip([1, 2], [10, 20], [100, 200]);
+            // => [[1, 10, 100], [2, 20, 200]]
+
+            _.unzipWith(zipped, _.add);
+            // => [3, 30, 300]
+        </li>
+        <li> _.without
+            --------->_.without(array, [values])array (Array): 要检查的数组。 [values] (...*):
+            要剔除的值。#创建一个剔除所有给定值的新数组，剔除值的时候，_.without([2, 1, 2, 3], 1, 2);
+            // => [3]
+        </li>
+        <li> _.xor
+            --------->数组唯一值的数组滤值后的新数组。（差值）_.xor([2, 1], [2, 3]);
+            // => [1, 3]
+        </li>
+        <li> _.xorBy
+            --------->数组唯一值的数组_.xorBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+            // => [{ 'x': 2 }]
+        </li>
+        <li> _.xorWith
+            --------->var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+            var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+
+            _.xorWith(objects, others, _.isEqual);
+            // => [{ 'x': 2, 'y': 1 }, { 'x': 1, 'y': 1 }]
+        </li>
+        <li> _.zip
+            --------->_.zip(['fred', 'barney'], [30, 40], [true, false]);
+            // => [['fred', 30, true], ['barney', 40, false]]
+        </li>
+        <li> _.zipObject
+            --------->_.zipObject(['a', 'b'], [1, 2]);
+            // => { 'a': 1, 'b': 2 }
+        </li>
+        <li> _.zipObjectDeep
+            --------->_.zipObjectDeep(['a.b[0].c', 'a.b[1].d'], [1, 2]);
+            // => { 'a': { 'b': [{ 'c': 1 }, { 'd': 2 }] } }
+        </li>
+        <li> _.zipWith
+            ---------> _.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
+            return a + b + c;
+            });
+            // => [111, 222]
+        </li>
+    </ul>
+</div>
+<div class="d-flex">
+    <ul id="collection">
+        <li>_.every
+            --------->集合）中的 所有 元素是否都返回真值
+        </li>
+        <li>_.filter
+            --------->返回真值 的所有元素的数组/=>_.filter(users, 'active');
+        </li>
+        <li>_.find
+            --------->第一个返回真值的第一个元素
+        </li>
+        <li>_.findLast
+            --------->第一个返回真值的第一个元素是从右至左遍历
+        </li>
+        <li>_.groupBy
+            --------->分组
+        </li>
+        <li>_.includes
+            --------->检查 value(值) 是否在 collection(集合) 中。 _.includes({ 'user': 'fred', 'age': 40 }, 'fred');
+            // => true
+        </li>
+        <li>_.keyBy
+            --------->创建一个对象组成， key（键） 是 collection（集合）中的每个元素经过
+        </li>
+        <li>_.map
+            --------->创建一个数组
+        </li>
+        <li>_.orderBy
+            --------->如何排序 以 `user` 升序排序 再 `age` 以降序排序。
+        </li>
+        <li>_.partition
+            --------->创建一个分成两组的元素数组 _.partition(users, { 'age': 1, 'active': false });_.partition(users, ['active',
+            false]);
+        </li>
+
+        <li>_.reject
+            --------->_.filter的反向方法;此方法
+        </li>
+        <li>_.sample
+            --------->从collection（集合）中获得一个随机元素。
+        </li>
+        <li>_.sampleSize
+            --------->从collection（集合）中获得 n 个随机元素。
+        </li>
+        <li>_.shuffle
+            --------->创建一个被打乱值的集合
+        </li>
+        <li>_.size
+            --------->如果集合是类数组或字符串，返回其 length ；_.size([1, 2, 3]);
+            // => 3
+
+            _.size({ 'a': 1, 'b': 2 });
+            // => 2
+        </li>
+        <li>_.some
+            --------->（集合）中的元素是否存在 任意 truthy（真值）的元素，
+        </li>
+        <li>_.sortBy
+            --------->创建一个元素数组。 以 iteratee 处理的结果升序排序。
+        </li>
+    </ul>
+</div>
+<ul id="object">
+    <li>_.assign
+        ---------> 合并 随后的下一个对象的属性会覆盖上一个对象的属性。
+    </li>
+    <li>_.assignIn
+        --------->这个方法类似_.assign， 除了它会遍历并继承来源对象的属性。
+    </li>
+    <li>_.assignInWith
+        --------->function customizer(objValue, srcValue) {
+        return _.isUndefined(objValue) ? srcValue : objValue;
+        }
+
+        var defaults = _.partialRight(_.assignInWith, customizer);
+
+        defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
+        // => { 'a': 1, 'b': 2 }
+    </li>
+    <li>_.assignWith
+        --------->function customizer(objValue, srcValue) {
+        return _.isUndefined(objValue) ? srcValue : objValue;
+        }
+
+        var defaults = _.partialRight(_.assignWith, customizer);
+
+        defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
+        // => { 'a': 1, 'b': 2 }
+
+    </li>
+    <li>_.at
+        --------->var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
+        _.at(object, ['a[0].b.c', 'a[1]']);
+        // => [3, 4]
+    </li>
+
+    <li>_.defaults
+        --------->_.defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
+        // => { 'a': 1, 'b': 2 }
+    </li>
+    <li>_.defaultsDeep
+        --------->_.defaultsDeep({ 'a': { 'b': 2 } }, { 'a': { 'b': 1, 'c': 3 } });
+        // => { 'a': { 'b': 2, 'c': 3 } }
+    </li>
+    <li>_.entries -> toPairs
+        --------->function Foo() {
+        this.a = 1;
+        this.b = 2;
+        }
+
+        Foo.prototype.c = 3;
+
+        _.toPairs(new Foo);
+        // => [['a', 1], ['b', 2]] (iteration order is not guaranteed)
+    </li>
+    <li>_.entriesIn -> toPairsIn
+        --------->function Foo() {
+        this.a = 1;
+        this.b = 2;
+        }
+
+        Foo.prototype.c = 3;
+
+        _.toPairsIn(new Foo);
+        // => [['a', 1], ['b', 2], ['c', 3]] (iteration order is not guaranteed)
+    </li>
+    <li>_.extend -> assignIn
+        --------->这个方法类似_.assign， 除了它会遍历并继承来源对象的属性。function Foo() {
+        this.a = 1;
+        }
+
+        function Bar() {
+        this.c = 3;
+        }
+
+        Foo.prototype.b = 2;
+        Bar.prototype.d = 4;
+
+        _.assignIn({ 'a': 0 }, new Foo, new Bar);
+        // => { 'a': 1, 'b': 2, 'c': 3, 'd': 4 }
+    </li>
+    <li>_.findKey
+        --------->这个方法类似_.find 。 除了它返回最先被 predicate 判断为真值的元素 key，var users = {
+        'barney':  { 'age': 36, 'active': true },
+        'fred':    { 'age': 40, 'active': false },
+        'pebbles': { 'age': 1,  'active': true }
+        };
+
+        _.findKey(users, function(o) { return o.age < 40; });
+        // => 'barney' (iteration order is not guaranteed)
+
+        // The `_.matches` iteratee shorthand.
+        _.findKey(users, { 'age': 1, 'active': true });
+    </li>
+    <li>_.findLastKey
+        --------->这个方法类似_.findKey。 不过它是反方向开始遍历的。
+    </li>
+    <li>_.forIn
+        --------->使用 iteratee 遍历对象的自身和继承的可枚举属性
+    </li>
+    <li>_.forInRight
+        --------->
+    </li>
+
+    <li>_.has
+        --------->检查 path 是否是object对象的直接属性。_.has(object, 'a');
+        // => true
+    </li>
+
+    <li>_.invert
+        --------->var object = { 'a': 1, 'b': 2, 'c': 1 };
+        _.invert(object);
+        // => { '1': 'c', '2': 'b' }
+    </li>
+    <li>_.invertBy
+        --------->var object = { 'a': 1, 'b': 2, 'c': 1 };
+
+        _.invertBy(object);
+        // => { '1': ['a', 'c'], '2': ['b'] }
+
+        _.invertBy(object, function(value) {
+        return 'group' + value;
+        });
+        // => { 'group1': ['a', 'c'], 'group2': ['b'] }
+    </li>
+
+    <li>_.keys
+        --------->
+    </li>
+    <li>_.keysIn
+        --------->function Foo() {
+        this.a = 1;
+        this.b = 2;
+        }
+
+        Foo.prototype.c = 3;
+
+        _.keysIn(new Foo);
+    </li>
+    <li>_.mapKeys
+        --------->_.mapKeys({ 'a': 1, 'b': 2 }, function(value, key) {
+        return key + value;
+        });
+        // => { 'a1': 1, 'b2': 2 }
+
+    </li>
+    <li>_.mapValues
+        --------->var users = {
+        'fred':    { 'user': 'fred',    'age': 40 },
+        'pebbles': { 'user': 'pebbles', 'age': 1 }
+        };
+
+        _.mapValues(users, function(o) { return o.age; });
+        // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
+
+        // The `_.property` iteratee shorthand.
+        _.mapValues(users, 'age');
+        // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
+    </li>
+    <li>_.merge 合并
+        --------->var object = {
+        'a': [{ 'b': 2 }, { 'd': 4 }]
+        };
+
+        var other = {
+        'a': [{ 'c': 3 }, { 'e': 5 }]
+        };
+
+        _.merge(object, other);
+        // => { 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] }
+    </li>
+    <li>_.mergeWith
+        --------->function customizer(objValue, srcValue) {
+        if (_.isArray(objValue)) {
+        return objValue.concat(srcValue);
+        }
+        }
+
+        var object = { 'a': [1], 'b': [2] };
+        var other = { 'a': [3], 'b': [4] };
+
+        _.mergeWith(object, other, customizer);
+        // => { 'a': [1, 3], 'b': [2, 4] }
+
+    </li>
+    <li>_.omit
+        --------->反向版_.pick; 这个方法一个对象var object = { 'a': 1, 'b': '2', 'c': 3 };
+
+        _.omit(object, ['a', 'c']);
+        // => { 'b': '2' }
+    </li>
+    <li>_.omitBy
+        --------->var object = { 'a': 1, 'b': '2', 'c': 3 };
+
+        _.omitBy(object, _.isNumber);
+        // => { 'b': '2' }
+    </li>
+    <li>_.pick
+        --------->var object = { 'a': 1, 'b': '2', 'c': 3 };
+
+        _.pick(object, ['a', 'c']);
+        // => { 'a': 1, 'c': 3 }
+    </li>
+    <li>_.pickBy
+        --------->var object = { 'a': 1, 'b': '2', 'c': 3 };
+
+        _.pickBy(object, _.isNumber);
+        // => { 'a': 1, 'c': 3 }
+    </li>
+    <li>_.values--------->创建 object 自身可枚举属性的值为数组。
+    <li>_.valuesIn--------->function Foo() {
+    this.a = 1;
+    this.b = 2;
+    }
+
+    Foo.prototype.c = 3;
+
+    _.valuesIn(new Foo);
+    // => [1, 2, 3] (无法保证遍历的顺序)</li>
+</ul>
+<ul id="language">
+    <li>_.castArray
+        --------->如果 value 不是数组, 那么强制转为数组。
+    </li>
+    <li>_.clone
+        --------->创建一个 value 的浅拷贝。
+    </li>
+    <li>_.cloneDeep
+        --------->这个方法类似_.clone，除了它会递归拷贝 value。
+    </li>
+    <li>_.cloneDeepWith
+        --------->这个方法类似_.cloneWith，除了它会递归克隆 value。
+    </li>
+    <li>_.cloneWith
+        --------->这个方法类似_.clone，除了它接受一个 customizer 定制返回的克隆值。 如果 customizer 返回 undefined 将会使用拷贝方法代替处理。 customizer 调用4个参数： (value [, index|key, object, stack])。
+    </li>
+    <li>_.conformsTo 函数是等价的。比较
+        --------->var object = { 'a': 1, 'b': 2 };
+
+        _.conformsTo(object, { 'b': function(n) { return n > 1; } });
+        // => true
+
+        _.conformsTo(object, { 'b': function(n) { return n > 2; } });
+        // => false
+    </li>
+    <li>_.eq
+        --------->执行SameValueZero 比较两者的值，来确定它们是否相等。
+    </li>
+    <li>_.gt
+        --------->检查 value是否大于 other。
+    </li>
+    <li>_.gte
+        --------->检查 value是否大于或者等于 other。
+    </li>
+    <li>_.isArguments
+        --------->检查 value 是否是一个类 arguments 对象。_.isArguments(function() { return arguments; }());
+        // => true
+
+        _.isArguments([1, 2, 3]);
+    </li>
+    <li>_.isArray
+        --------->
+    </li>
+    <li>_.isArrayBuffer
+        --------->
+    </li>
+    <li>_.isArrayLike
+        --------->
+    </li>
+    <li>_.isArrayLikeObject
+        --------->
+    </li>
+    <li>_.isBoolean
+        --------->
+    </li>
+    <li>_.isBuffer
+        --------->
+    </li>
+    <li>_.isDate
+        --------->
+    </li>
+    <li>_.isElement
+        --------->
+    </li>
+    <li>_.isEmpty
+        --------->
+    </li>
+    <li>_.isEqual
+        --------->
+    </li>
+    <li>_.isEqualWith
+        --------->
+    </li>
+    <li>_.isError
+        --------->
+    </li>
+    <li>_.isFinite
+        --------->
+    </li>
+    <li>_.isFunction
+        --------->
+    </li>
+    <li>_.isInteger
+        --------->
+    </li>
+    <li>_.isLength
+        --------->
+    </li>
+    <li>_.isMap
+        --------->
+    </li>
+    <li>_.isMatch
+        --------->
+    </li>
+    <li>_.isMatchWith
+        --------->
+    </li>
+    <li>_.isNaN
+        --------->
+    </li>
+    <li>_.isNative
+        --------->
+    </li>
+    <li>_.isNil
+        --------->
+    </li>
+    <li>_.isNull
+        --------->
+    </li>
+    <li>_.isNumber
+        --------->
+    </li>
+    <li>_.isObject
+        --------->
+    </li>
+    <li>_.isObjectLike
+        --------->
+    </li>
+    <li>_.isPlainObject
+        --------->
+    </li>
+    <li>_.isRegExp
+        --------->
+    </li>
+    <li>_.isSafeInteger
+        --------->
+    </li>
+    <li>_.isSet
+        --------->
+    </li>
+    <li>_.isString
+        --------->
+    </li>
+    <li>_.isSymbol
+        --------->
+    </li>
+    <li>_.isTypedArray
+        --------->
+    </li>
+    <li>_.isUndefined
+        --------->
+    </li>
+    <li>_.isWeakMap
+        --------->
+    </li>
+    <li>_.isWeakSet
+        --------->
+    </li>
+    <li>_.lt
+        --------->检查 value 是否小于 other。
+    </li>
+    <li>_.lte
+        --------->检查 value 是否小于等于 other。
+    </li>
+    <li>_.toArray
+        --------->
+    </li>
+    <li>_.toFinite
+        --------->
+    </li>
+    <li>_.toInteger
+        --------->
+    </li>
+    <li>_.toLength
+        --------->
+    </li>
+    <li>_.toNumber
+        --------->
+    </li>
+    <li>_.toPlainObject
+        --------->
+    </li>
+    <li>_.toSafeInteger
+        --------->
+    </li>
+    <li>_.toString---------></li>
+</ul>
+
+<script>
+
+</script>
+</body>
+</html>

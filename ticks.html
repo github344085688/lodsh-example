@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lodash.js"></script>
+</head>
+<body>
+
+<script>
+	var js = [
+		{
+			"id": "TASK-361601",
+
+			"orderIds": [
+				"DN-269301",
+				"DN-269301"
+			],
+
+		},{
+			"id": "TASK-361602",
+
+			"orderIds": [
+				"DN-269302"
+			],
+
+		},{
+			"id": "TASK-361603",
+
+			"orderIds": [
+				"DN-269303"
+			],
+
+		},{
+			"id": "TASK-361604",
+
+			"orderIds": [
+				"DN-269304"
+			],
+
+		},
+
+	]
+	var virtualLocationGroups = _.keyBy(js,'orderIds');
+	console.log(virtualLocationGroups);
+
+</script>
+</body>
